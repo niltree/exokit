@@ -19,13 +19,13 @@ RUN \
   if [ ! -z "$MAGICLEAP_ENV" ]; then export MAGICLEAP="$MAGICLEAP_ENV"; fi && \
   npm install --unsafe-perm .
 RUN \
-  mkdir -p /tmp/exokit-bin/bin /tmp/exokit-bin/lib/exokit && \
-  cp -R . /tmp/exokit-bin/lib/exokit && \
-  cp exokit-bin.sh /tmp/exokit-bin/bin/exokit && \
-  cd /tmp/exokit-bin && \
-  tar -czf /app/exokit-linux-bin.tar.gz --exclude=".*" --exclude="*.tar.gz" * && \
+  mkdir -p /tmp/niltree-bin/bin /tmp/niltree-bin/lib/niltree && \
+  cp -R . /tmp/niltree-bin/lib/niltree && \
+  cp niltree-bin.sh /tmp/niltree-bin/bin/niltree && \
+  cd /tmp/niltree-bin && \
+  tar -czf /app/niltree-linux-bin.tar.gz --exclude=".*" --exclude="*.tar.gz" * && \
   cd /app && \
-  tar -czf exokit-linux-full.tar.gz --exclude=".*" --exclude="*.tar.gz" * && \
+  tar -czf niltree-linux-full.tar.gz --exclude=".*" --exclude="*.tar.gz" * && \
   rm -R node && \
-  tar -czf exokit-linux.tar.gz --exclude=".*" --exclude="*.tar.gz" *
+  tar -czf niltree-linux.tar.gz --exclude=".*" --exclude="*.tar.gz" *
 

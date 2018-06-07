@@ -1178,7 +1178,7 @@ NAN_METHOD(Create) {
     glGenTextures(sizeof(framebufferTextures)/sizeof(framebufferTextures[0]), framebufferTextures);
   }
 
-  GLFWwindow *windowHandle = glfwCreateWindow(width, height, "Exokit", nullptr, shared ? sharedWindow : nullptr);
+  GLFWwindow *windowHandle = glfwCreateWindow(width, height, "Mixed Reality", nullptr, shared ? sharedWindow : nullptr);
 
   if (windowHandle) {
     SetCurrentWindowContext(windowHandle);

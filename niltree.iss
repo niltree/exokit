@@ -1,10 +1,10 @@
-#define MyAppName "Exokit Browser"
-#define MyAppShortName "Exokit"
-#define MyAppLCShortName "exokit"
-#define MyAppPublisher "WebMR"
-#define MyAppURL "https://github.com/webmixedreality/exokit"
-#define MyAppExeName "exokit.cmd"
-#define MyIcon "exokit.ico"
+#define MyAppName "Niltree Browser"
+#define MyAppShortName "Niltree"
+#define MyAppLCShortName "niltree"
+#define MyAppPublisher "Niltree"
+#define MyAppURL "https://github.com/niltree/niltree"
+#define MyAppExeName "niltree.cmd"
+#define MyIcon "niltree.ico"
 #define ProjectRoot "."
 
 [Setup]
@@ -36,7 +36,7 @@ ChangesEnvironment=yes
 DisableProgramGroupPage=yes
 ArchitecturesInstallIn64BitMode=x64 ia64
 UninstallDisplayIcon={app}\{#MyIcon}
-AppCopyright=Copyright (c) 2018 WebMR
+AppCopyright=Copyright (c) 2018 Niltree
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
@@ -49,6 +49,7 @@ Source: "{#ProjectRoot}\*"; DestDir: "{app}"; BeforeInstall: PreInstall; Flags: 
 
 [Icons]
 Name: "{group}\{#MyAppName}"; WorkingDir: "{%userprofile}"; Filename: "{app}\{#MyAppExeName}"; Parameters: "-h"; IconFilename: "{app}\{#MyIcon}"
+Name: "{group}\Leetsaber"; WorkingDir: "{%userprofile}"; Filename: "{app}\{#MyAppExeName}"; Parameters: "https://files.webmr.io/_files/shawnpresser@gmail.com/leetsaber/leetsaber/index.html"; IconFilename: "{app}\{#MyIcon}"
 Name: "{group}\{#MyAppShortName} Command Prompt"; WorkingDir: "{%userprofile}"; Filename: "{app}\{#MyAppExeName}"; IconFilename: "{app}\{#MyIcon}"
 Name: "{group}\Uninstall {#MyAppShortName}"; Filename: "{uninstallexe}"
 

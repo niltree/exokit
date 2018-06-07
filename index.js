@@ -20,7 +20,7 @@ const {THREE} = core;
 const nativeBindings = require(nativeBindingsModulePath);
 const {nativeVideo, nativeVr, nativeLm, nativeMl, nativeWindow} = nativeBindings;
 
-const dataPath = path.join(os.homedir() || __dirname, '.exokit');
+const dataPath = path.join(os.homedir() || __dirname, '.niltree');
 
 const contexts = [];
 const _windowHandleEquals = (a, b) => a[0] === b[0] && a[1] === b[1];
@@ -102,7 +102,7 @@ nativeBindings.nativeGl.onconstruct = (gl, canvas) => {
     const framebufferWidth = nativeWindow.getFramebufferSize(windowHandle).width;
     window.devicePixelRatio = framebufferWidth / canvasWidth;
 
-    const title = `Exokit ${version}`
+    const title = `Niltree ${version}`
     nativeWindow.setWindowTitle(windowHandle, title);
 
     if (document.hidden) {
@@ -290,7 +290,7 @@ let isMlPresenting = false;
 let mlFbo = null;
 let mlTex = null;
 let mlGlContext = null;
-if (nativeMl) {
+if (nativeMl && false) {
   mlContext = new nativeMl();
   nativeMl.requestPresent = function(layers) {
     if (!isMlPresenting) {
@@ -1104,7 +1104,7 @@ const _start = () => {
   }
   if (u) {
     if (u === '.') {
-      console.warn('NOTE: You ran `exokit . <url>`\n(Did you mean to run `node . <url>` or `exokit <url>` instead?)')
+      console.warn('NOTE: You ran `niltree . <url>`\n(Did you mean to run `node . <url>` or `niltree <url>` instead?)')
     }
     if (u && !url.parse(u).protocol) {
       u = 'file://' + path.resolve(cwd, u);

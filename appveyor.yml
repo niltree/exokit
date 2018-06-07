@@ -3,10 +3,6 @@ version: 0.0.{build}
 # Test against the latest version of this Node.js version
 environment:
   nodejs_version: "9"
-  MAGICLEAP:
-    secure: 4mAodSQiCUr1X1maLOYyj4nYCb87r4J54Wb1jw1EE9tT4tpcbic6hpDynrSu7Ep3
-  PFX_KEY:
-    secure: rb5g/ykqdQek473qm/8WbnEQ6ItBfgcL1/ShqAMWLTH5+Z3Y45MHN2BB3UXdx067
 
 # Install scripts. (runs after repo cloning)
 install:
@@ -23,7 +19,6 @@ test_script:
 
 after_test:
   - ps: |
-      rm -R -fo dump
       wget "https://nodejs.org/dist/v10.3.0/node-v10.3.0-win-x64.zip" -OutFile node.zip
       7z x node.zip
       rm node.zip
@@ -34,59 +29,50 @@ after_test:
       set version "$env:APPVEYOR_REPO_TAG_NAME"
       if ([string]::IsNullOrEmpty("$version")) { set version "$env:APPVEYOR_REPO_COMMIT".Substring(0, 8) }
       mkdir dist
-      .\buildtools\iscc "$pwd\exokit.iss" "/dMyAppVersion=$version" /odist /qp
-      mv dist\*.exe exokit-win-x64.exe
+      .\buildtools\iscc "$pwd\niltree.iss" "/dMyAppVersion=$version" /odist /qp
+      mv dist\*.exe niltree-win-x64.exe
       rm -R -fo dist
-      & "C:/Program Files (x86)/Microsoft SDKs/Windows/v7.1A/Bin/SignTool.exe" sign /f .\codesign-windows.pfx /t http://timestamp.comodoca.com/authenticode /p "$env:PFX_KEY" exokit-win-x64.exe
-      7z a exokit-windows-full.zip * -xr'!.git' -xr'!buildtools' -xr'!exokit-win-x64.exe'
+      & "C:/Program Files (x86)/Microsoft SDKs/Windows/v7.1A/Bin/SignTool.exe" sign /f .\codesign-windows.pfx /t http://timestamp.comodoca.com/authenticode /p "$env:PFX_KEY" niltree-win-x64.exe
+      7z a niltree-windows-full.zip * -xr'!.git' -xr'!buildtools' -xr'!niltree-win-x64.exe'
       rm -r -fo node
-      7z a exokit-windows.zip * -xr'!.git' -xr'!buildtools' -xr'!exokit-win-x64.exe' -xr'!exokit-windows-full.zip'
+      7z a niltree-windows.zip * -xr'!.git' -xr'!buildtools' -xr'!niltree-win-x64.exe' -xr'!niltree-windows-full.zip'
 
 artifacts:
-  - path: "exokit-windows.zip"
-    name: exokit-windows
-  - path: "exokit-windows-full.zip"
-    name: exokit-windows-full
-  - path: "exokit-win-x64.exe"
-    name: exokit-windows-installer
+  - path: "niltree-windows.zip"
+    name: niltree-windows
+  - path: "niltree-windows-full.zip"
+    name: niltree-windows-full
+  - path: "niltree-win-x64.exe"
+    name: niltree-windows-installer
 
 deploy:
   - provider: GitHub
-    description: 'Exokit git'
+    description: 'Niltree git'
     auth_token:
       secure: JzzhsoEKVJ6oKuS/3Uwa+odltY7CFRU/V5BaO62rG6BwfSeCydMDX5o/gJScQGkN
-    artifact: "exokit-windows.zip"
+    artifact: "niltree-windows.zip"
     draft: false
     prerelease: false
     on:
       appveyor_repo_tag: true
   - provider: GitHub
-    description: 'Exokit git'
+    description: 'Niltree git'
     auth_token:
       secure: JzzhsoEKVJ6oKuS/3Uwa+odltY7CFRU/V5BaO62rG6BwfSeCydMDX5o/gJScQGkN
-    artifact: "exokit-windows-full.zip"
+    artifact: "niltree-windows-full.zip"
     draft: false
     prerelease: false
     on:
       appveyor_repo_tag: true
   - provider: GitHub
-    description: 'Exokit installer'
+    description: 'Niltree installer'
     auth_token:
       secure: JzzhsoEKVJ6oKuS/3Uwa+odltY7CFRU/V5BaO62rG6BwfSeCydMDX5o/gJScQGkN
-    artifact: "exokit-win-x64.exe"
+    artifact: "niltree-win-x64.exe"
     draft: false
     prerelease: false
     on:
       appveyor_repo_tag: true
-
-notifications:
-  - provider: Slack
-    auth_token:
-      secure: 45CGZx1wukHisNzZTeLLraViNfOZxzzjx5lCfcrBq57T+fCPvD0UkJ0v3Slc/ykJ6TL5feuLnp0CGrAwtlfNztcTdPNlpCkGuWskq1A+Ehw=
-    channel: '#builds'
-    on_build_success: false
-    on_build_failure: true
-    on_build_status_changed: true
 
 # Don't actually build.
 build: off
