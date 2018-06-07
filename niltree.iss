@@ -12,7 +12,7 @@
 ; Do not use the same AppId value in installers for other applications.
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
 PrivilegesRequired=admin
-AppId=26ED4ED2-804E-48D8-96CB-F89B8EE53DA1
+AppId=CA0C94CF-EC72-42C7-8E39-D8243E34A0B0
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
 AppVerName={#MyAppName} {#MyAppVersion}

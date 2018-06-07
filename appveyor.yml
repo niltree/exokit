@@ -32,15 +32,11 @@ after_test:
       .\buildtools\iscc "$pwd\niltree.iss" "/dMyAppVersion=$version" /odist /qp
       mv dist\*.exe niltree-win-x64.exe
       rm -R -fo dist
-      7z a niltree-windows-full.zip * -xr'!.git' -xr'!buildtools' -xr'!niltree-win-x64.exe'
-      rm -r -fo node
-      7z a niltree-windows.zip * -xr'!.git' -xr'!buildtools' -xr'!niltree-win-x64.exe' -xr'!niltree-windows-full.zip'
+      7z a niltree-windows.zip * -xr'!.git' -xr'!buildtools' -xr'!niltree-win-x64.exe'
 
 artifacts:
   - path: "niltree-windows.zip"
     name: niltree-windows
-  - path: "niltree-windows-full.zip"
-    name: niltree-windows-full
   - path: "niltree-win-x64.exe"
     name: niltree-windows-installer
 
