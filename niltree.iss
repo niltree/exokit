@@ -49,7 +49,7 @@ Source: "{#ProjectRoot}\*"; DestDir: "{app}"; BeforeInstall: PreInstall; Flags: 
 
 [Icons]
 Name: "{group}\{#MyAppName}"; WorkingDir: "{%userprofile}"; Filename: "{app}\{#MyAppExeName}"; Parameters: "-h"; IconFilename: "{app}\{#MyIcon}"
-Name: "{group}\Leetsaber"; WorkingDir: "{%userprofile}"; Filename: "{app}\{#MyAppExeName}"; Parameters: "https://files.webmr.io/_files/shawnpresser@gmail.com/leetsaber/leetsaber/index.html"; IconFilename: "{app}\{#MyIcon}"
+Name: "{group}\Leetsaber"; WorkingDir: "{%userprofile}"; Filename: "{app}\{#MyAppExeName}"; Parameters: "-p --blit https://files.webmr.io/_files/shawnpresser@gmail.com/leetsaber/leetsaber/index.html"; IconFilename: "{app}\{#MyIcon}"
 Name: "{group}\{#MyAppShortName} Command Prompt"; WorkingDir: "{%userprofile}"; Filename: "{app}\{#MyAppExeName}"; IconFilename: "{app}\{#MyIcon}"
 Name: "{group}\Uninstall {#MyAppShortName}"; Filename: "{uninstallexe}"
 
