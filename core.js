@@ -3508,7 +3508,7 @@ const _makeWindow = (options = {}, parent = null, top = null) => {
   });
   window.history = new History(location.href);
   window.navigator = {
-    userAgent: `MixedReality (Exokit ${version})`,
+    userAgent: `MixedReality (Niltree ${version})`,
     platform: os.platform(),
     appCodeName: 'Mozilla',
     appName: 'Netscape',

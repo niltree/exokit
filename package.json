@@ -1,12 +1,12 @@
 {
-  "name": "exokit",
-  "version": "0.0.291",
-  "description": "Javascript web browser for the post-screen world",
+  "name": "niltree",
+  "version": "0.0.7",
+  "description": "Javascript web browser for AR, VR, and WebGL sites",
   "engines": {
     "node": ">=10.0.0"
   },
   "bin": {
-    "exokit": "index.js"
+    "niltree": "index.js"
   },
   "main": "index.js",
   "scripts": {
@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/webmixedreality/exokit-windows.git"
+    "url": "git+https://github.com/niltree/niltree.git"
   },
   "keywords": [
     "browser",
@@ -31,12 +31,12 @@
     "ar",
     "magic leap"
   ],
-  "author": "Avaer Kazmer <a@modules.io>",
-  "license": "ISC",
+  "author": "Shawn Presser <shawnpresser@gmail.com>",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/webmixedreality/exokit-windows/issues"
+    "url": "https://github.com/niltree/niltree/issues"
   },
-  "homepage": "https://github.com/webmixedreality/exokit-windows#readme",
+  "homepage": "https://github.com/niltree/niltree#readme",
   "dependencies": {
     "@rgrove/parse-xml": "^1.1.1",
     "css": "^2.2.3",
